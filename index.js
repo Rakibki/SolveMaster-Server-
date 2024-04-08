@@ -2,8 +2,13 @@ const express = require("express");
 const applyMiddleWere = require("./middlewares/applyMiddleware");
 const connetDb = require("./db/connectDb");
 const PORT = process.env.PORT || 4001;
+require("dotenv").config();
 
 const app = express();
+
+app.get("/", (req, res) => {
+  res.send({ message: "Server is running" });
+});
 
 applyMiddleWere(app);
 
