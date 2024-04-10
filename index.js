@@ -6,6 +6,7 @@ require("dotenv").config();
 const blogRoutes = require("./routes/blogs/index");
 const problemRoutes = require("./routes/problems/index");
 const courseRoutes = require("./routes/courses/index");
+const userRoutes = require("./routes/users/index");
 
 const app = express();
 
@@ -13,11 +14,13 @@ app.get("/", (req, res) => {
   res.send({ message: "Server is running" });
 });
 
+applyMiddleWere(app);
+
 app.use(blogRoutes);
 app.use(problemRoutes);
 app.use(courseRoutes);
+app.use(userRoutes);
 
-applyMiddleWere(app);
 
 const main = async () => {
   await connetDb();
